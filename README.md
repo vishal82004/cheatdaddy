@@ -1,61 +1,51 @@
-<img width="1299" height="424" alt="cd (1)" src="https://github.com/user-attachments/assets/b25fff4d-043d-4f38-9985-f832ae0d0f6e" />
+# Cheating Daddy (React Version)
 
-## Recall.ai - API for desktop recording
+A powerful, AI-powered desktop assistant for interviews, meetings, and exams. Now rebuilt with **React + Vite**.
 
-If you’re looking for a hosted desktop recording API, consider checking out [Recall.ai](https://www.recall.ai/product/desktop-recording-sdk/?utm_source=github&utm_medium=sponsorship&utm_campaign=sohzm-cheating-daddy), an API that records Zoom, Google Meet, Microsoft Teams, in-person meetings, and more.
+## 🚀 Recent Changes (React Migration)
 
-This project is sponsored by Recall.ai.
+The frontend has been completely migrated from Lit to **React 18** for better maintainability, performance, and developer experience.
 
----
+### Key Improvements
+- **Modern Tech Stack**: Switched to **React 18**, **TypeScript**, and **Vite** for lightning-fast builds (~1s).
+- **Architecture**:
+    - **Component-Based**: UI Logic split into `MainView`, `AssistantView`, `AppHeader`, etc.
+    - **Services**: Core logic refactored into singleton services (`CaptureService`, `StorageService`, `IPCService`).
+    - **Global Bridge**: Seamless integration between Electron main process and React renderer via `window.cheatingDaddy`.
+- **Features Preserved**:
+    - **Media Capture**: Full screen and system audio capture (Windows/macOS/Linux).
+    - **Global Shortcuts**: `Ctrl+Enter` for manual analysis, `Ctrl+M` for click-through.
+    - **Customization**: Profile switching, theme support, and custom prompts.
 
-> [!NOTE]  
-> Use latest MacOS and Windows version, older versions have limited support
+## 🛠️ Build & Run
 
-> [!NOTE]  
-> During testing it wont answer if you ask something, you need to simulate interviewer asking question, which it will answer
+1.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
 
-A real-time AI assistant that provides contextual help during video calls, interviews, presentations, and meetings using screen capture and audio analysis.
+2.  **Start Development**:
+    ```bash
+    npm start
+    ```
+    This builds the React app with Vite and launches Electron.
 
-## Features
+3.  **Build for Production**:
+    ```bash
+    npm run make
+    ```
 
-- **Live AI Assistance**: Real-time help powered by Google Gemini 2.0 Flash Live
-- **Screen & Audio Capture**: Analyzes what you see and hear for contextual responses
-- **Multiple Profiles**: Interview, Sales Call, Business Meeting, Presentation, Negotiation
-- **Transparent Overlay**: Always-on-top window that can be positioned anywhere
-- **Click-through Mode**: Make window transparent to clicks when needed
-- **Cross-platform**: Works on macOS, Windows, and Linux (kinda, dont use, just for testing rn)
+## 📦 Project Structure
 
-## Setup
-
-1. **Get a Gemini API Key**: Visit [Google AI Studio](https://aistudio.google.com/apikey)
-2. **Install Dependencies**: `npm install`
-3. **Run the App**: `npm start`
-
-## Usage
-
-1. Enter your Gemini API key in the main window
-2. Choose your profile and language in settings
-3. Click "Start Session" to begin
-4. Position the window using keyboard shortcuts
-5. The AI will provide real-time assistance based on your screen and what interview asks
-
-## Keyboard Shortcuts
-
-- **Window Movement**: `Ctrl/Cmd + Arrow Keys` - Move window
-- **Click-through**: `Ctrl/Cmd + M` - Toggle mouse events
-- **Close/Back**: `Ctrl/Cmd + \` - Close window or go back
-- **Send Message**: `Enter` - Send text to AI
-
-## Audio Capture
-
-- **macOS**: [SystemAudioDump](https://github.com/Mohammed-Yasin-Mulla/Sound) for system audio
-- **Windows**: Loopback audio capture
-- **Linux**: Microphone input
-
-## Requirements
-
-- Electron-compatible OS (macOS, Windows, Linux)
-- Gemini API key
-- Screen recording permissions
-- Microphone/audio permissions
-# cheatdaddy
+```
+src/
+├── react/              # New React Source
+│   ├── components/     # Reusable UI Components
+│   ├── views/          # Main Application Views
+│   ├── services/       # Core Logic (Capture, Storage, IPC)
+│   ├── App.tsx         # Main Route Handler
+│   └── main.tsx        # Entry Point
+├── utils/              # Electron Main Process Utils
+├── index.js            # Electron Entry Point
+└── index.html          # HTML Entry Point
+```
