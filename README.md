@@ -58,3 +58,4 @@ A real-time AI assistant that provides contextual help during video calls, inter
 - Gemini API key
 - Screen recording permissions
 - Microphone/audio permissions
+# cheatdaddy
