@@ -77,7 +77,7 @@ function createWindow(sendToRenderer, geminiSessionRef) {
         mainWindow.setAlwaysOnTop(true, 'screen-saver', 1);
     }
 
-    mainWindow.loadFile(path.join(__dirname, '../index.html'));
+    mainWindow.loadFile(path.join(__dirname, '../../dist/index.html'));
 
     // After window is created, initialize keybinds
     mainWindow.webContents.once('dom-ready', () => {
